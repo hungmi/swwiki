@@ -1,0 +1,22 @@
+- if params[:list_id]
+  = simple_form_for(@sublist) do |f|
+
+    = f.error_notification
+
+    .form-inputs
+      = f.input :parent_list_id, collection: List.all, label_method: :name, value_method: :id, selected: params[:list_id]
+      = f.input :name      
+
+    .form-actions
+      = f.button :submit
+
+- else
+  = simple_form_for(@list) do |f|
+
+    = f.error_notification
+
+    .form-inputs
+      = f.input :name
+
+    .form-actions
+      = f.button :submit
