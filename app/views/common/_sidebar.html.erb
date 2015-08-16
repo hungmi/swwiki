@@ -1,32 +1,19 @@
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Start Bootstrap
-                    </a>
-                </li>
-                <li>
-                    <a href="#">Dashboard</a>
-                </li>
-                <li>
-                    <a href="#">Shortcuts</a>
-                </li>
-                <li>
-                    <a href="#">Overview</a>
-                </li>
-                <li>
-                    <a href="#">Events</a>
-                </li>
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
+<!-- Sidebar -->
+<div id="sidebar-wrapper">
+  <ul class="sidebar-nav">
+    <li class="sidebar-brand">
+      <a href="#">
+        Start Bootstrap
+      </a>
+    </li>
+    <% List.where(parent_list_id: nil).each do |head| %>
+        <li>
+          <a href="#"><%= head.name %></a>
+          <ul>
+            <%= render_sublists(head) %>
+          </ul>
+        </li>
+    <% end %>                
+  </ul>
+</div>
+<!-- /#sidebar-wrapper -->

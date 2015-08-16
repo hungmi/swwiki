@@ -18,6 +18,7 @@
 //= require moment/zh-tw
 //= require nprogress
 //= require nprogress-turbolinks
+//= require cocoon
 //= require bootstrap-datetimepicker
 //= require turbolinks
 //= require_tree .

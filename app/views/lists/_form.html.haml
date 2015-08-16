@@ -1,22 +1,18 @@
-- if params[:list_id]
-  = simple_form_for(@sublist) do |f|
+= simple_form_for(@list) do |f|
 
-    = f.error_notification
+  = f.error_notification
 
-    .form-inputs
-      = f.input :parent_list_id, collection: List.all, label_method: :name, value_method: :id, selected: params[:list_id]
-      = f.input :name      
+  .form-inputs
+    .row
+      .col-sm-8
+        = f.input :name
 
-    .form-actions
-      = f.button :submit
+    %h3 Sublists
+    #sublists
+      = f.simple_fields_for :sublists do |sublist|
+        = render partial:'sublist_fields', locals: { f: sublist }
+      .links
+        = link_to_add_association 'add sublist', f, :sublists
 
-- else
-  = simple_form_for(@list) do |f|
-
-    = f.error_notification
-
-    .form-inputs
-      = f.input :name
-
-    .form-actions
-      = f.button :submit
+  .form-actions
+    = f.button :submit

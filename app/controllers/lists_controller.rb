@@ -28,28 +28,15 @@ class ListsController < ApplicationController
   # POST /lists
   # POST /lists.json
   def create
-    if params[:list_id]
-      @sublist = List.find(params[:list_id]).sublists.new(list_params)
-      respond_to do |format|
-        if @sublist.save
-          format.html { redirect_to @sublist, notice: 'Sublist was successfully created.' }
-          format.json { render :show, status: :created, location: @sublist }
-        else
-          format.html { render :new }
-          format.json { render json: @sublist.errors, status: :unprocessable_entity }
-        end
-      end
-    else
-      @list = List.new(list_params)
+    @list = List.new(list_params)
 
-      respond_to do |format|
-        if @list.save
-          format.html { redirect_to @list, notice: 'List was successfully created.' }
-          format.json { render :show, status: :created, location: @list }
-        else
-          format.html { render :new }
-          format.json { render json: @list.errors, status: :unprocessable_entity }
-        end
+    respond_to do |format|
+      if @list.save
+        format.html { redirect_to @list, notice: 'List was successfully created.' }
+        format.json { render :show, status: :created, location: @list }
+      else
+        format.html { render :new }
+        format.json { render json: @list.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -86,6 +73,6 @@ class ListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def list_params
-      params.require(:list).permit(:name, :parent_list_id)
+      params.require(:list).permit(:name, sublists_attributes: [:id, :name, :parent_list_id, :_destroy])
     end
 end

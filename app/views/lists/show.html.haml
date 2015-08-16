@@ -3,8 +3,7 @@
 %p
   %b Name:
   = @list.name
-  = link_to 'Add sublist', new_list_sublist_path(@list)
-
-= link_to 'Edit', edit_list_path(@list)
+  
+= link_to 'Add sublist', edit_list_path(@list)
 \|
 = link_to 'Back', lists_path
