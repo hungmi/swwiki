@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :posts
   resources :lists do
     #resources :sublists, controller: 'lists'
   end

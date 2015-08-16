@@ -1,0 +1,7 @@
+%h1 Editing post
+
+= render 'form'
+
+= link_to 'Show', @post
+\|
+= link_to 'Back', list_posts_path(list_id: @list.id)

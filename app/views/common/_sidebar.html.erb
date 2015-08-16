@@ -2,17 +2,17 @@
 <div id="sidebar-wrapper">
   <ul class="sidebar-nav">
     <li class="sidebar-brand">
-      <a href="#">
-        Start Bootstrap
+      <a href="/">
+        SW wiki
       </a>
     </li>
     <% List.where(parent_list_id: nil).each do |head| %>
-        <li>
-          <a href="#"><%= head.name %></a>
-          <ul>
-            <%= render_sublists(head) %>
-          </ul>
-        </li>
+      <li>
+        <%= link_to head.name, list_path(head) %>
+        <ul>
+          <%= render_sublists(head) %>
+        </ul>
+      </li>
     <% end %>                
   </ul>
 </div>

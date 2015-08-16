@@ -10,8 +10,4 @@ module ListsHelper
       return
     end    
   end
-
-  def render_a
-    "a".html_safe
-  end
 end
