@@ -19,6 +19,7 @@
 //= require nprogress
 //= require nprogress-turbolinks
 //= require cocoon
+//= require ckeditor/init
 //= require bootstrap-datetimepicker
 //= require turbolinks
 //= require_tree .

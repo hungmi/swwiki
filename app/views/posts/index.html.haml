@@ -14,12 +14,11 @@
     - @posts.each do |post|
       %tr
         %td= post.title
-        %td= post.content
+        %td= sanitize(post.content)
         %td= post.list
-        %td= link_to 'Show', post
-        %td= link_to 'Edit', edit_post_path(post)
-        %td= link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Edit', edit_list_post_path(@list, post)
+        %td= link_to 'Destroy', list_post_path(@list, post), :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Post', new_post_path
+= link_to 'New Post', new_list_post_path(@list)

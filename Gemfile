@@ -39,11 +39,11 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.15.35'
 gem 'twilio-ruby', '~> 4.0'
 
 #gem "paperclip", "~> 4.3"
-gem "rmagick"
+gem 'mini_magick'
 gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
 # nested form
 gem 'cocoon'
-
+gem 'ckeditor'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 

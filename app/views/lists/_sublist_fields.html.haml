@@ -2,13 +2,5 @@
   .col-sm-8
     = f.input :name, label: false
   .col-sm-4
-    - stack = stack.nil? ? 0 : stack + 1
-    - if stack <= 1
-      .links
-        = link_to_add_association '+', f, :sublists, :render_options => {:locals => {:stack => stack} }, 'data-association-insertion-node' => '#sublists' + stack.to_s
     = link_to_remove_association "X", f
-%ul{ id: "sublists#{stack}" ,style: 'list-style: none;' }
-  = f.simple_fields_for :sublists do |sublist|
-    %li= render 'sublist_fields', f: sublist
-    /= "stack = #{stack}"
 

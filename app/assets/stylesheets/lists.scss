@@ -5,12 +5,26 @@
 h1.inline, h2.inline, h3.inline, h4.inline, h5.inline {
   display: inline;
 }
+hr {
+  border-top: 1px solid #d19feb;
+}
 .sidebar-nav {
   ul {
     padding-left: 20px;
   }
   li {
+    font-size: 16px;
     line-height: 30px;
     list-style: none;
+    a.active {
+      text-decoration: none;
+      color: #fff;
+      background: rgba(86,191,181,0.4);
+    }
+  }
+  .sidebar-brand {
+    height: 65px;
+    font-size: 24px;
+    line-height: 60px;
   }
 }
