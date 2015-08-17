@@ -5,7 +5,7 @@ module ListsHelper
       content_tag :ul do
         head.sublists.map do |sub|
           concat(
-            content_tag(:li, link_to(sub.name, list_path(sub)) + render_sublists(sub))
+            content_tag(:li, link_to("- #{sub.name}", list_path(sub)) + render_sublists(sub))
           )
         end
       end

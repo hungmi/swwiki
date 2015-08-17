@@ -5,3 +5,12 @@
 h1.inline, h2.inline, h3.inline, h4.inline, h5.inline {
   display: inline;
 }
+.sidebar-nav {
+  ul {
+    padding-left: 20px;
+  }
+  li {
+    line-height: 30px;
+    list-style: none;
+  }
+}
