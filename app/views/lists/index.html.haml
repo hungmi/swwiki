@@ -9,7 +9,7 @@
       %th 
 
   %tbody
-    - List.where(parent_list_id: nil).each do |list|    
+    - List.all.each do |list|    
       %tr
         %td= list.name
         %td= list.id

@@ -73,6 +73,6 @@ class ListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def list_params
-      params.require(:list).permit(:name, sublists_attributes: [:id, :name, :parent_list_id, :_destroy])
+      params.require(:list).permit(:name, sublists_attributes: [:id, :name, :parent_list_id, :_destroy, sublists_attributes: [:id, :name, :parent_list_id, :_destroy, sublists_attributes: [:id, :name, :parent_list_id, :_destroy, sublists_attributes: [:id, :name, :parent_list_id, :_destroy]]] ])
     end
 end

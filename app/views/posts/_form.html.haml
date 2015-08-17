@@ -1,13 +1,10 @@
-= simple_form_for [@list, @post] do |f|
+= simple_form_for ([@list,@post]) do |f|
   = f.error_notification
 
   .form-inputs
     = f.input :title
-    = f.input :content
-    = f.association :list
+    = f.input :content, input_html: { rows: 15 }
+    = f.association :list, selected: @list.id
 
   .form-actions
     = f.button :submit
-
-
-= console

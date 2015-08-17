@@ -1,13 +1,15 @@
 %p#notice= notice
 
-%p
-  %b Name:
-  = @list.name
-  - @list.posts.each do |po|
-    = link_to po.title, post_path(po)
-  
-= link_to 'Add post', new_post_path
-\|
-= link_to 'Add sublist', edit_list_path(@list)
-\|
-= link_to 'Back', lists_path
+%h2.inline= @list.name
+%span
+  = link_to 'Add post', new_list_post_path(list_id: @list.id)
+  \|
+  = link_to 'Add sublist', edit_list_path(@list)
+  %hr
+
+- @list.posts.each do |po|
+  %h3.inline= link_to po.title, list_post_path(@list, po)
+  %span
+    = link_to 'Delete', list_post_path(@list, po), :method => :delete, :data => { :confirm => 'Are you sure?' }
+  %p= po.content
+  %hr

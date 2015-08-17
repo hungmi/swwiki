@@ -9,9 +9,7 @@
     <% List.where(parent_list_id: nil).each do |head| %>
       <li>
         <%= link_to head.name, list_path(head) %>
-        <ul>
-          <%= render_sublists(head) %>
-        </ul>
+        <%= render_sublists(head) %>
       </li>
     <% end %>                
   </ul>
