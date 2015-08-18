@@ -1,19 +1,27 @@
-%p#notice= notice
-
 %h1.inline= @list.name
 %span
-  = link_to 'Add post', new_list_post_path(list_id: @list.id)
+  = link_to new_list_post_path(list_id: @list.id) do
+    %span.fa.fa-plus
+    = I18n.t('add_post')
   \|
-  = link_to 'Delete', list_path(@list), :method => :delete, :data => { :confirm => 'Are you sure?' }
+  = link_to list_path(@list), :method => :delete, :data => { :confirm => 'Are you sure?' } do
+    %span.glyphicon.glyphicon-trash
+    = I18n.t('delete')
   \|
-  = link_to 'Add sublist', edit_list_path(@list)
+  = link_to edit_list_path(@list) do
+    %span.fa.fa-plus
+    = I18n.t('lists.form.add_sublist')
   %hr
 
 - @list.posts.each do |po|
   %h3.inline= po.title
   %span.pull-right
-    = link_to 'Edit', edit_list_post_path(@list, po)
+    = link_to edit_list_post_path(@list, po) do
+      %span.glyphicon.glyphicon-edit
+      = I18n.t('posts.edit')
     \|
-    = link_to 'Delete', list_post_path(@list, po), :method => :delete, :data => { :confirm => 'Are you sure?' }
+    = link_to list_post_path(@list, po), :method => :delete, :data => { :confirm => 'Are you sure?' } do
+      %span.glyphicon.glyphicon-trash
+      = I18n.t('posts.delete')
   %p= sanitize(po.content)
   %hr

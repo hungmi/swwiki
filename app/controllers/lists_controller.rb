@@ -58,10 +58,16 @@ class ListsController < ApplicationController
   # DELETE /lists/1
   # DELETE /lists/1.json
   def destroy
+    @parent_list = List.find(@list.parent_list_id)
     @list.destroy
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'List was successfully destroyed.' }
-      format.json { head :no_content }
+      if @parent_list
+        format.html { redirect_to @parent_list, notice: 'List was successfully destroyed.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to root_path, notice: 'List was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 
@@ -73,6 +79,6 @@ class ListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def list_params
-      params.require(:list).permit(:name, sublists_attributes: [:id, :name, :parent_list_id, :_destroy, sublists_attributes: [:id, :name, :parent_list_id, :_destroy, sublists_attributes: [:id, :name, :parent_list_id, :_destroy, sublists_attributes: [:id, :name, :parent_list_id, :_destroy]]] ])
+      params.require(:list).permit(:name, sublists_attributes: [:id, :name, :parent_list_id, :_destroy] )
     end
 end

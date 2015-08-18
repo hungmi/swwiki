@@ -1,0 +1,49 @@
+zh-TW:
+  # Global
+  switch_menu: "開關menu"
+  add_post: "新增文章"
+  delete: "刪除"
+
+  # View
+  lists:
+    new:
+      title: "新增項目"
+    form:
+      add_sublist: "新增子項目"
+      sublists: "下一層的子項目"
+    edit:
+      title: "編輯個人資料"
+    show:
+      verify: "立刻驗證"
+      resend_pin: "重發驗證碼"
+      delete: "刪除帳號"
+      edit: "編輯個人資料"
+  posts:
+    edit: "編輯文章"
+    delete: "刪除文章"
+    form:
+      basic_information: "基本資訊"
+      house_type: 房源類型
+      amenity: 設施
+      furniture: 傢俱
+      extra_fee: 額外費用
+      public_facility: 公共設施
+      rule: 提醒
+
+  # Model
+  activerecord:
+    models:
+      list: "品項"
+  # Form
+  flash:
+    messages:
+      success: "更新成功！"
+      fail: "更新失敗！"
+  helpers:
+    submit:
+      list:
+        create: "確認上傳"
+        update: "確認上傳"
+      post:
+        create: "確認上傳"
+        update: "確認上傳"

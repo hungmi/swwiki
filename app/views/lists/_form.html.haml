@@ -5,9 +5,11 @@
   .form-inputs
     = f.input :name, label: false
     .links
-      = link_to_add_association 'add sublist', f, :sublists, 'data-association-insertion-node' => "#sublists", 'data-association-insertion-method' => "after"
+      = link_to_add_association f, :sublists, 'data-association-insertion-node' => "#sublists", 'data-association-insertion-method' => "after" do
+        %span.fa.fa-plus
+        = I18n.t('lists.form.add_sublist')
 
-    %h3 Sublists
+    %h3= t '.sublists'
     %ul#sublists{ style: 'list-style: none;' }
       = f.simple_fields_for :sublists do |sublist|
         %li= render partial:'sublist_fields', locals: { f: sublist }
@@ -15,3 +17,4 @@
 
   .form-actions
     = f.button :submit
+    = link_to 'Cancel', list_path(@list) if @list.persisted?
