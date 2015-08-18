@@ -58,16 +58,15 @@ class ListsController < ApplicationController
   # DELETE /lists/1
   # DELETE /lists/1.json
   def destroy
-    @parent_list = List.find(@list.parent_list_id)
+    @parent_list ||= @list.parent_list
     @list.destroy
     respond_to do |format|
-      if @parent_list
-        format.html { redirect_to @parent_list, notice: 'List was successfully destroyed.' }
-        format.json { head :no_content }
+      if @parent_list.nil?
+        format.html { redirect_to root_path, notice: 'List was successfully destroyed.' }        
       else
-        format.html { redirect_to root_path, notice: 'List was successfully destroyed.' }
-        format.json { head :no_content }
+        format.html { redirect_to @parent_list, notice: 'List was successfully destroyed.' }
       end
+      format.json { head :no_content }
     end
   end
 
